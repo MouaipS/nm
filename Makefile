@@ -5,7 +5,11 @@ CFLAGS = -Wall -Wextra -Werror -I include
 SRCDIR = src
 OBJDIR = objs
 
-SRC = $(SRCDIR)/main.c
+SRC = $(SRCDIR)/main.c \
+		$(SRCDIR)/setup.c \
+		$(SRCDIR)/process_64.c \
+		$(SRCDIR)/process_32.c \
+		$(SRCDIR)/utils.c
 
 OBJ = $(SRCS:.c=.o)
 SRCS = $(addprefix $(SRC_DIR), $(SRC))

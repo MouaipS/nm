@@ -1,11 +1,15 @@
 #include "ft_nm.h"
 
-void process_nm(const char *filename, int jsp){
-	t_data *data;
+static void process_nm(const char *filename, int jsp){
+	t_data data;
+	(void)jsp;
 	ft_setup(&data, filename);
 	ft_check_file(&data, filename);
+	if(data.is_64_or_32 == true)
+		process_64(&data);
+	else
+		process_32(&data);
 }
-
 
 int main(int ac, char **av){
 	if(ac < 2){
@@ -15,5 +19,6 @@ int main(int ac, char **av){
 			process_nm(av[i], 0);
 		}
 	}
+	printf("tout va bien\n");
 	return(0);
 }
