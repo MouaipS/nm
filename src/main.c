@@ -3,6 +3,7 @@
 void process_nm(const char *filename, int jsp){
 	t_data *data;
 	ft_setup(&data, filename);
+	ft_check_file(&data, filename);
 }
 
 
