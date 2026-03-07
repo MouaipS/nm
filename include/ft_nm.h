@@ -35,6 +35,11 @@ typedef struct s_symtab{
 	size_t strtab_size;
 } t_symtab;
 
+typedef struct s_sym{
+	const char *name;
+	char letter;
+}t_sym;
+
 typedef struct s_data{
 	void *map;
 	struct stat buff;
@@ -44,6 +49,7 @@ typedef struct s_data{
 	bool is_64_or_32;
 	t_elf *header_info;
 	t_symtab *ptr_symtab;
+	t_sym *sym_array;
 } t_data;
 
 
