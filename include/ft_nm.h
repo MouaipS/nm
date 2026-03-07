@@ -27,6 +27,14 @@ typedef struct s_elf{
 	char *offset_shstrtab;
 } t_elf;
 
+typedef struct s_symtab{
+	void *symtab;
+	size_t size;
+	size_t symbole_size;
+	char *strtab;
+	size_t strtab_size;
+} t_symtab;
+
 typedef struct s_data{
 	void *map;
 	struct stat buff;
@@ -35,8 +43,10 @@ typedef struct s_data{
 	 */
 	bool is_64_or_32;
 	t_elf *header_info;
-
+	t_symtab *ptr_symtab;
 } t_data;
+
+
 
 void ft_setup(t_data *data, const char *filename);
 void ft_check_file(t_data *data, const char *filename);
@@ -47,6 +57,6 @@ void process_32(t_data *data);
 
 //utils.c
 void ft_error(const char *error);
-void find_tabs(t_data *data);
+void find_tabs(t_data *data, Elf64_Shdr *elf_header);
 
 #endif

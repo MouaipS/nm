@@ -8,5 +8,5 @@ void process_32(t_data *data){
 	data->header_info->shstrtab_index = elf_header->e_shstrndx; //index section "annuaire des noms des symboles"
 	Elf64_Shdr *shsrtab_header = &elf_section_header_table[data->header_info->shstrtab_index]; //header de la section "annuaire des noms des symboles"
 	data->header_info->offset_shstrtab = (char *)data->map + shsrtab_header->sh_offset;
-	find_tabs(data);
+	//find_tabs(data);
 }
