@@ -1,6 +1,6 @@
 NAME = ft_nm
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I include
+CFLAGS = -g -Wall -Wextra -Werror -I include
 
 SRCDIR = src
 OBJDIR = objs

@@ -53,10 +53,15 @@ void ft_check_file(t_data *data, const char *filename);
 
 //process_64.c
 void process_64(t_data *data);
+void symbols64(t_data *data);
+
+//process_32.c
 void process_32(t_data *data);
+void symbols32(t_data *data);
 
 //utils.c
 void ft_error(const char *error);
 void find_tabs(t_data *data, Elf64_Shdr *elf_header);
+void parse_symbol(t_data *data);
 
 #endif

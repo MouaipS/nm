@@ -1,5 +1,12 @@
 #include "ft_nm.h"
 
+void parse_symbol(t_data *data){
+	if(data->is_64_or_32 == true)
+		symbols64(data);
+	else
+		symbols32(data);
+}
+
 void find_tabs(t_data *data, Elf64_Shdr *elf_header){
 	int i = 0;
 	Elf64_Shdr *tmpShdr;
