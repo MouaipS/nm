@@ -3,6 +3,9 @@
 static void process_nm(const char *filename, int jsp){
 	t_data data;
 	(void)jsp;
+	data.header_info = malloc(sizeof(t_elf));
+    data.ptr_symtab = malloc(sizeof(t_symtab));
+
 	ft_setup(&data, filename);
 	ft_check_file(&data, filename);
 	if(data.is_64_or_32 == true)

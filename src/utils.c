@@ -12,8 +12,8 @@ void find_tabs(t_data *data, Elf64_Shdr *elf_header){
 			if(tmpShdr->sh_entsize == 0) //taille du fichier erronee
 				data->ptr_symtab->symbole_size = sizeof(Elf64_Shdr);
 			data->ptr_symtab->symbole_size = tmpShdr->sh_entsize;
-			if(tmpShdr->sh_link > data->header_info->nb_sections){
-				header_string_table = data->header_info->offset_shstrtab[tmpShdr->sh_link];
+			if(tmpShdr->sh_link < data->header_info->nb_sections){
+				header_string_table = &elf_header[tmpShdr->sh_link];
 				data->ptr_symtab->strtab = data->map + header_string_table->sh_offset;
 				data->ptr_symtab->strtab_size = tmpShdr->sh_size;
 			}
